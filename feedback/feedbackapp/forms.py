@@ -13,7 +13,7 @@ class AddPostForm(forms.ModelForm):
         model = Feedback
         fields = ['title', 'content', 'cat']
         widgets = {
-            'content': forms.Textarea(attrs={'cols': 60, 'rows': 10})
+            'content': forhms.Textarea(attrs={'cols': 60, 'rows': 10})
         }
 
     def clean_title(self):
