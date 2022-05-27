@@ -1,0 +1,14 @@
+{% extends 'feedback/base.html'%}
+
+{% block content%}
+<h1 style="margin-left: 15px;">{{feed.title}}</h1>
+
+<div class="one_feed">
+    <p class="one_feed_desc">{{feed.content}}</p>
+    <span>Категория:</span>
+    <span class="place_category">{{feed.cat}}</span>
+    <span class="data_feed">{{feed.time_create}}</span>
+    <a href="{% url 'update_view'  slug_feed=feed.slug %}">Редактировать</a>
+    <a href="{% url 'delete_feed' slug_feed=feed.slug %}">Удалить</a>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'feedback/base.html' %}
+
+{% block content %}
+<div class="delete">
+    <h1>Удалить отзыв</h1>
+    <form action="" method="post">{% csrf_token %}
+      <p class="">Вы уверены что хотите удалить ваш отзыв? "</p>
+      <button type="submit" >Удалить</button>
+    </form>
+</div>
+{% endblock content %}

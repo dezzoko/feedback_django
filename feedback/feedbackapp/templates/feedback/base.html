@@ -1,0 +1,62 @@
+{% load static %}
+{% load feedback_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'feedback/style.css' %}">
+</head>
+<body>
+
+
+{% block menu %}
+<header>
+    <h1>{{title}}</h1>
+    <nav>
+        {% for m in menu %}
+        <span class="text_menu"><a href="{% url m.url_name %}">{{m.title}}</a></span>
+        {% endfor%}
+        <img src="yana" alt="">
+    </nav>
+    <div class="category_container">
+        <ul class="category">
+            {% if cat_selected == 0 %}
+            <li>Все категории</li>
+            {% else %}
+            <li><a href="{% url 'home' %}"> Все категории </a></li>
+            {% endif %}
+
+
+            {% for cat in cats %}
+            {% if cat.feedback__count > 0 %}
+            {% if cat.id == cat_selected %}
+            <li>{{cat.name}}</li>
+            {% else %}
+            <li><a href="{{cat.get_absolute_url}}">{{cat.name}}</a></li>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+        </ul>
+    </div>
+
+
+</header>
+{% endblock menu %}
+
+{% block content %}
+{% endblock %}
+<nav>
+    <ul>
+        {% for p in paginator.page_range%}
+        {% if page_obj.number == p %}
+        <li>{{p}}</li>
+        {%else %}
+        <li><a href="?page={{ p }}">{{p}}</a></li>
+        {% endif%}
+        {% endfor %}
+    </ul>
+</nav>
+</body>
+</html>

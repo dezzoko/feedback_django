@@ -1,0 +1,24 @@
+{% extends 'feedback/base.html'%}
+
+
+{% block content %}
+{% for i in info %}
+
+<div class="container">
+    <ul class="feedbacks">
+        <li class=index>
+            <a href="{{i.get_absolute_url}}"><h2>{{i.title}} </h2></a>
+            <div class="content">
+                <p class="content">
+                    {{i.content|truncatewords:20}}
+                </p></div>
+           <span>Категория:</span>
+            <span class="place_category">{{i.cat}}</span>
+            <span class="data">{{i.time_create}}</span>
+
+            <hr>
+        </li>
+    </ul>
+</div>
+{% endfor %}
+{% endblock %}
