@@ -1,1 +1,1 @@
-Course work on Django(CRUD)
+Course project on Django(CRUD) 
